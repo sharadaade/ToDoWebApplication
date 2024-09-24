@@ -33,24 +33,26 @@
                 <td class="auto-style2">Username</td>
                 <td class="auto-style5">
                     <asp:TextBox ID="txtUsername" runat="server" Width="203px"></asp:TextBox>
-&nbsp;
+&nbsp;&nbsp;
                     </td>
             </tr>
             <tr>
                 <td class="auto-style3">Password</td>
                 <td class="auto-style4">
                     <asp:TextBox ID="txtPassword" runat="server" Width="202px"></asp:TextBox>
-&nbsp;
-                    </td>
+&nbsp;&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style5">
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" style="height: 29px" />
                 </td>
             </tr>
         </table>
         <div>
+            <br />
+            <asp:Button ID="btnNewUser" runat="server" OnClick="btnNewUser_Click" Text="New User" />
+            <br />
         </div>
     </form>
 </body>

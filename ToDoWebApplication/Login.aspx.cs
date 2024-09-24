@@ -23,56 +23,43 @@ namespace ToDoWebApplication
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(cs);
-            string query = "select * from usertable where username = @user and password = @pass";
-            SqlCommand cmd = new SqlCommand(query, con);
 
-            cmd.Parameters.AddWithValue("@user", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
-
-            con.Open();
-
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
+            using (SqlConnection con = new SqlConnection(cs))
             {
-                //Session["user"] = txtUsername.Text;
-                Response.Redirect("Homepage.aspx");
+                string query = "SELECT * FROM usertable WHERE username = @user AND password = @pass";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@user", txtUsername.Text);
+                    cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
+
+
+                    con.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            dr.Read();
+                            Session["user"] = dr["username"].ToString();
+                            Session["loginDate"] = dr["created_at"].ToString();
+                            Session["userid"] = dr["id"].ToString();
+                            Response.Redirect("Homepage.aspx");
+                        }
+                        else
+                        {
+
+                            Response.Redirect("Login.aspx");
+                        }
+                    }
+                }
             }
-            else
-            {
-                Response.Redirect("Login.aspx");
-            }
-            con.Close();
 
-            //using (SqlConnection con = new SqlConnection(cs))
-            //{
-            //    string query = "SELECT * FROM Login WHERE username = @user AND password = @pass";
+        }
 
-            //    using (SqlCommand cmd = new SqlCommand(query, con))
-            //    {
-            //        cmd.Parameters.AddWithValue("@user", txtUsername.Text);
-            //        cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
-
-            //        con.Open();
-
-            //        using (SqlDataReader dr = cmd.ExecuteReader())
-            //        {
-            //            if (dr.HasRows)
-            //            {
-            //                Session["user"] = txtUsername.Text;
-            //                Response.Redirect("Homepage.aspx");
-            //            }
-            //            else
-            //            {
-
-            //                Response.Redirect("Login.aspx");
-            //            }
-            //        }
-            //    }
-            //}
-
-
+        protected void btnNewUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Signup.aspx");
         }
     }
 }
