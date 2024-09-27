@@ -4,56 +4,53 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <link href="CSS/Login.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
+    <title>To Do - Login</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="Icon/fevicon.ico" type="image/x-icon" /> 
+        <style>
+        body {
+            background-color: #aa9e9e;
         }
-        .auto-style2 {
-            width: 131px;
-        }
-        .auto-style3 {
-            width: 131px;
-            height: 34px;
-        }
-        .auto-style4 {
-            height: 34px;
-            width: 1134px;
-        }
-        .auto-style5 {
-            width: 1134px;
-        }
+     
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <table class="auto-style1">
-            <tr>
-                <td class="auto-style2">Username</td>
-                <td class="auto-style5">
-                    <asp:TextBox ID="txtUsername" runat="server" Width="203px"></asp:TextBox>
-&nbsp;&nbsp;
-                    </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">Password</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="txtPassword" runat="server" Width="202px"></asp:TextBox>
-&nbsp;&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style5">
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" style="height: 29px" />
-                </td>
-            </tr>
-        </table>
-        <div>
-            <br />
-            <asp:Button ID="btnNewUser" runat="server" OnClick="btnNewUser_Click" Text="New User" />
-            <br />
+    <div class="container">
+
+        <div class="col-6  mt-4 mx-auto d-block">
+            <form id="form1" runat="server">
+                <div class="row mt-5">
+                    <div class="col-5 mx-auto d-block">
+                        <label for="txtUsername">Username </label>
+                        <asp:TextBox ID="txtUsername" runat="server" Width="200px" class="form-control mt-1"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-5 mx-auto d-block">
+                        <label for="txtPassword">Password </label>
+                        <asp:TextBox ID="txtPassword" runat="server" Width="200px" class="form-control mt-1"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-2 mx-auto d-block">
+                        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" class="btn btn-outline-primary pt-2 mx-auto d-block" />
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-2 mx-auto d-block">
+                        New User
+                        <asp:Button ID="btnNewUser" runat="server" OnClick="btnNewUser_Click" Text="Signup" class="btn text-primary pt-2 mx-auto d-block" />
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
+    <footer>
+        
+    </footer>
+    <script src="Scripts/bootstrap.min.js"></script>
 </body>
 </html>

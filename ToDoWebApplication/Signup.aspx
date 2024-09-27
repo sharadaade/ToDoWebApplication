@@ -4,42 +4,68 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+     <link rel="shortcut icon" href="Icon/fevicon.ico" type="image/x-icon" />
+    <title>ToDo - Signup</title>
+    <style>
+        body {
+            background-color: #aa9e9e;
+        }
+   </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="lblusename" runat="server" Text="Username"></asp:Label>
-            <br />
-            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
-            <br />
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-            <br />
-            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label3" runat="server" Text="Mobo No"></asp:Label>
-            <br />
-            <asp:TextBox ID="txtMobono" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Button ID="btnCreateAccount" runat="server" OnClick="btnCreateAccount_Click" Text="Create Account" />
-            <br />
-            <br />
-            <br />
-            Already have account<br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
-            <br />
-            <br />
-        </div>
+<body class="bg-black text-white">
+    <div class="container mt-5">
+        <form id="form1" runat="server">
+            <div class="row mt-3">
+
+                <div class="col-2 mx-auto d-block">
+                    <div>
+                        <label for="txtUsername">Username</label>
+                        <asp:TextBox ID="txtUsername" runat="server" class="form-control mt-1"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-2 mx-auto d-block">
+                    <div>
+                        <label for="txtEmail">Email</label>
+                        <asp:TextBox ID="txtEmail" runat="server" class="form-control mt-1"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-2 mx-auto d-block">
+                    <div>
+                        <label for="txtPassword">Password</label>
+                        <asp:TextBox ID="txtPassword" runat="server" class="form-control mt-1"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-2 mx-auto d-block">
+                    <div>
+                        <label for="txtMobono">Mobo No</label>
+                        <asp:TextBox ID="txtMobono" runat="server" class="form-control mt-1"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-2 mx-auto d-block">                    
+                        <asp:Button ID="btnCreateAccount" runat="server" OnClick="btnCreateAccount_Click" Text="Create Account" class="btn btn-outline-primary pt-2 mx-auto d-block"/>            
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-2 mx-auto d-block">
+                        Already have account
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" class="btn text-primary  mx-auto d-block"/>
+                </div>
+            </div>
     </form>
-    <p>
-        &nbsp;</p>
+    </div>
 </body>
 </html>

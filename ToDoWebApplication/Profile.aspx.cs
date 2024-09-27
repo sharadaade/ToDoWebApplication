@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,8 +20,9 @@ namespace ToDoWebApplication
             }
             else
             {
-                Response.Write("<h2>You are joined at </h2>");
-                Response.Write(Session["loginDate"].ToString());
+                Response.Write("<h2>" + Session["user"].ToString().ToUpper() + "</h2>");
+                Response.Write("<em>You are joined on  </em>");
+                Response.Write("<h23>" + (Session["loginDate"].ToString()).Substring(0,10) + "</h3>");
             }
            
         }
